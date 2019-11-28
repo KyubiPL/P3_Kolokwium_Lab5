@@ -12,26 +12,19 @@ namespace Kolokwium
             return pole;
         }
 
-        static public void koniec(string tak)
+        static public void koniec(string text)
         {
-           string[] tablica;
-           int dlugosc = tak.Length;
+            char[] tab = text.ToCharArray();
 
-           for (int i = 0; i < dlugosc; i++)
-           {
-                
-           }
+            Array.Reverse(tab);
+
+            Console.WriteLine(tab);
 
         }
-        
-      /*  static public void szarpana(ref int [,]tab)
+
+        static public void szarpana(ref int[,] tab)
         {
-            int[] tab1;
-            int[] tab2;
-            int[] tab3;
-            int[] tab4;
-            int[] tab5;
-            int[][] tac = {  tab1 , tab2, tab3, tab4, tab5 };
+            int[] n = new int[5];
 
             for (int i = 0; i < tab.GetLength(0); i++)
             {
@@ -43,19 +36,28 @@ namespace Kolokwium
                     }
                     else
                     {
-                        tac[i][j] = tab[i, j];
-                    }                 
-                }
-                for (int i = 0; i < tac.Length; i++)
-                {
-                    for (int j = 0; j < tac[].Length; j++)
-                    {
-
+                        n[i]++;
                     }
                 }
-                
             }
-    }*/
+
+            int[] tab1 = new int[n[0]];
+            int[] tab2 = new int[n[1]];
+            int[] tab3 = new int[n[2]];
+            int[] tab4 = new int[n[3]];
+            int[] tab5 = new int[n[4]];
+            int[][] tac = new int[][] { tab1, tab2, tab3, tab4, tab5 };
+
+            for (int i = 0; i < tac.Length; i++)
+            {
+                for (int j = 0; j < tac[i].Length; j++)
+                {
+                    tac[i][j] = tab[i,j];
+                    Console.Write(tac[i][j]);
+                }
+                Console.WriteLine();
+            }
+        }
 
     static void Main(string[] args)
         {
@@ -75,14 +77,21 @@ namespace Kolokwium
             int[,] tabl =
               {
                 {1,2,3,0,0},
-                {3,2,1,0,0 },
-                {2,0,0,0,0 },
-                {3,4,0,0,0 },
-                {1,2,3,4,0 },
+                {3,2,1,0,0},
+                {2,0,0,0,0},
+                {3,4,0,0,0},
+                {1,2,3,4,0},
             };
 
-            //szarpana(ref tabl); 
-           
+            szarpana(ref tabl);
+
+
+            Console.WriteLine();
+            Console.WriteLine("Podaj jakiś wyraz! :");
+            string text=Console.ReadLine();
+
+            koniec(text);
+            //sposób na to zadanie podejrzałem w internecie
 
         }
     }
